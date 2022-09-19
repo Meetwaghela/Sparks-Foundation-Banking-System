@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2021 at 08:38 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 7.3.28
+-- Generation Time: Sep 19, 2022 at 07:02 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,6 +31,7 @@ CREATE TABLE `customer` (
   `id` int(3) NOT NULL,
   `name` text NOT NULL,
   `email` varchar(30) NOT NULL,
+  `DOB` date NOT NULL,
   `balance` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -38,17 +39,12 @@ CREATE TABLE `customer` (
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`id`, `name`, `email`, `balance`) VALUES
-(1, 'Harshil Shah', 'harshilshah@gmail.com', 48955),
-(2, 'Kunj Trivedi', 'kunjtrivedi@gmail.com', 35000),
-(3, 'Mohan Sharma', 'mohansharma@gmail.com', 40691),
-(4, 'Nirav Modi', 'niravmodi@gmail.com', 48590),
-(5, 'Rahul Sen', 'rahulsen@gmail.com', 40050),
-(6, 'Virat Kohli', 'viratkohli@gmail.com', 30555),
-(7, 'Milind Shah', 'milindshah@gmail.com', 49877),
-(8, 'Anupam Kher', 'anupamkher@gmail.com', 36825),
-(9, 'Sachin Tendulkar', 'sachintendulkar@gmail.com', 30000),
-(10, 'Mahendra Singh Dhoni', 'msd@gmail.com', 50096);
+INSERT INTO `customer` (`id`, `name`, `email`, `DOB`, `balance`) VALUES
+(1, 'Meet Waghela', 'meet@gmail.com', '2001-06-25', 972361),
+(2, 'nitin kumar', 'Nk@gmail.com', '2003-06-22', 496254),
+(3, 'hardi Waghela', 'hw@gmail.com', '2002-06-07', 944069),
+(4, 'Siddharth shah', 'ss@gmail.com', '2001-06-13', 697701),
+(5, 'Preeti Waghela', 'pw@gmail.com', '1984-03-08', 1035233);
 
 -- --------------------------------------------------------
 
@@ -69,9 +65,14 @@ CREATE TABLE `transaction` (
 --
 
 INSERT INTO `transaction` (`sno`, `sender`, `receiver`, `balance`, `datetime`) VALUES
-(1, 'Mohan Sharma', 'Kunj Trivedi', 480, '2022-07-18 18:07:13'),
-(2, 'Harshil Shah', 'Nirav Modi', 640, '2022-07-17 20:44:53'),
-(3, 'Harshil Shah', 'Virat Kohli', 455, '2022-07-16 07:34:22');
+(1, 'nitin kumar', 'Preeti Waghela', 15000, '2022-09-17 18:17:20'),
+(2, 'hardi Waghela', 'Meet Waghela', 33251, '2022-09-17 22:47:18'),
+(3, 'Preeti Waghela', 'hardi Waghela', 23000, '2022-09-18 13:16:05'),
+(4, 'Meet Waghela', 'Siddharth shah', 30000, '2022-09-18 13:16:26'),
+(5, 'hardi Waghela', 'Meet Waghela', 123456, '2022-09-19 21:41:18'),
+(6, 'Siddharth shah', 'nitin kumar', 54321, '2022-09-19 21:47:37'),
+(7, 'Meet Waghela', 'Preeti Waghela', 43234, '2022-09-19 21:51:23'),
+(8, 'Siddharth shah', 'hardi Waghela', 77777, '2022-09-19 22:12:35');
 
 --
 -- Indexes for dumped tables
@@ -97,13 +98,13 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `sno` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `sno` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
